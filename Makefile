@@ -1,4 +1,3 @@
-# Authored by Christopher Tam for Georgia Tech's CS 2200
 TARGET = vm-sim
 
 CC     = gcc
