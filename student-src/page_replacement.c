@@ -8,20 +8,6 @@
 pfn_t select_victim_frame(void);
 
 
-/*  --------------------------------- PROBLEM 7 --------------------------------------
-    Checkout PDF section 7 for this problem
-    
-    Make a free frame for the system to use.
-
-    You will first call the page replacement algorithm to identify an
-    "available" frame in the system.
-
-    In some cases, the replacement algorithm will return a frame that
-    is in use by another page mapping. In these cases, you must "evict"
-    the frame by using the frame table to find the original mapping and
-    setting it to invalid. If the frame is dirty, write its data to swap!
- * ----------------------------------------------------------------------------------
- */
 pfn_t free_frame(void) {
     pfn_t victim_pfn;
 
@@ -59,20 +45,7 @@ pfn_t free_frame(void) {
 
 
 
-/*  --------------------------------- PROBLEM 9 --------------------------------------
-    Checkout PDF section 7 and 9 for this problem
 
-    Finds a free physical frame. If none are available, uses either a
-    randomized or LRU algorithm to find a used frame for
-    eviction.
-
-    Return:
-        The physical frame number of a free (or evictable) frame.
-
-    HINTS: Use the global variables MEM_SIZE and PAGE_SIZE to calculate
-    the number of entries in the frame table.
-    ----------------------------------------------------------------------------------
-*/
 pfn_t select_victim_frame() {
     /* See if there are any free frames first */
     size_t num_entries = MEM_SIZE / PAGE_SIZE;
